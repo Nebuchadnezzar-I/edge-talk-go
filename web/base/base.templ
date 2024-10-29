@@ -1,6 +1,6 @@
 package web
 
-templ Base(title string) {
+templ Base(title string, content templ.Component) {
     <!DOCTYPE html>
     <html>
         <head>
@@ -9,14 +9,7 @@ templ Base(title string) {
             <script defer src="https://unpkg.com/htmx.org@2.0.3"></script>
         </head>
         <body>
-            <div class="content-wrapper">
-                <div class="select">
-
-                </div>
-                <div class="content">
-
-                </div>
-            </div>
+            @content
         </body>
     </html>
 }
@@ -41,6 +34,11 @@ templ Style() {
 
     * {
         box-sizing: border-box;
+    }
+
+    a, p, h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
     }
 
     body {
